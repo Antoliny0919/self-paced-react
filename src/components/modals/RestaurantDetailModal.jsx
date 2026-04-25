@@ -1,16 +1,21 @@
-export default function RestaurantDetailModal() {
+export default function RestaurantDetailModal({ selectedRestaurant, close }) {
   return (
     <div className="modal modal--open">
       <div className="modal-backdrop"></div>
       <div className="modal-container">
-        <h2 className="modal-title text-title">음식점 이름</h2>
+        <h2 className="modal-title text-title">{selectedRestaurant.name}</h2>
         <div className="restaurant-info">
           <p className="restaurant-info__description text-body">
-            음식점 소개 문구
+            {selectedRestaurant.description}
           </p>
         </div>
         <div className="button-container">
-          <button className="button button--primary text-caption">닫기</button>
+          <button
+            className="button button--primary text-caption"
+            onClick={() => close()}
+          >
+            닫기
+          </button>
         </div>
       </div>
     </div>

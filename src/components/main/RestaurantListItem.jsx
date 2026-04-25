@@ -7,22 +7,22 @@ function categoryImageName(categoryName) {
   else return "category-etc";
 }
 
-export default function RestaurantListItem({
-  data: { category, name, description },
-}) {
-  const categoryImagePath = `${categoryImageName(category)}.png`;
+export default function RestaurantListItem({ restaurant, openRestaurantInfo }) {
+  const categoryImagePath = `${categoryImageName(restaurant.category)}.png`;
   return (
-    <li className="restaurant">
+    <li className="restaurant" onClick={() => openRestaurantInfo(restaurant)}>
       <div className="restaurant__category">
         <img
           src={`templates/${categoryImagePath}`}
-          alt={category}
+          alt={restaurant.category}
           className="category-icon"
         />
       </div>
       <div className="restaurant__info">
-        <h3 className="restaurant__name text-subtitle">{name}</h3>
-        <p className="restaurant__description text-body">{description}</p>
+        <h3 className="restaurant__name text-subtitle">{restaurant.name}</h3>
+        <p className="restaurant__description text-body">
+          {restaurant.description}
+        </p>
       </div>
     </li>
   );

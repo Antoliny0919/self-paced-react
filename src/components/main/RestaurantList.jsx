@@ -1,12 +1,19 @@
 import RestaurantListItem from "./RestaurantListItem";
 import "./styles/RestaurantList.css";
 
-export default function RestaurantList({ restaurantsData }) {
+export default function RestaurantList({
+  restaurantsData,
+  openRestaurantInfo,
+}) {
   return (
     <section className="restaurant-list-container">
       <ul className="restaurant-list">
-        {restaurantsData.map((data) => (
-          <RestaurantListItem key={data.id} data={data} />
+        {restaurantsData.map((restaurant) => (
+          <RestaurantListItem
+            key={restaurant.id}
+            restaurant={restaurant}
+            openRestaurantInfo={openRestaurantInfo}
+          />
         ))}
       </ul>
     </section>
