@@ -8,11 +8,11 @@ function categoryImageName(categoryName) {
 }
 
 export default function RestaurantListItem({
-  data: { id, category, name, description },
+  data: { category, name, description },
 }) {
   const categoryImagePath = `${categoryImageName(category)}.png`;
   return (
-    <li className="restaurant" key={id}>
+    <li className="restaurant">
       <div className="restaurant__category">
         <img
           src={`templates/${categoryImagePath}`}
